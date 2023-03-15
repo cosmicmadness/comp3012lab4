@@ -1,0 +1,13 @@
+<h1 class="mt-4">Dashboard</h1>
+<p class="lead mb-3">Welcome <%= user.name %></p>
+
+
+<p>Current Active Sessions</p>
+<% for (let sid in session) { %>
+    SessionID: <%= sid %> <br>
+    UserID: <%= JSON.parse(session[sid]).passport.user %> <br>
+    <a href="/revoke<%=sid%>">Revoke session</a></br>
+    <br>
+<% } %>
+<br>
+<a href="/auth/logout" class="btn btn-secondary">Logout</a>
